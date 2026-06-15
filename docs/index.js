@@ -24,7 +24,7 @@ function playAudio(type) {
     currentAudio = audio[type];
     
     if (currentAudio) {
-        currentAudio.volume = muted ? 0 : 0.7;
+        currentAudio.volume = muted ? 0 : 0.5;
         currentAudio.play().catch(e => {
             console.log("Audio play prevented (user interaction needed)");
         });
@@ -38,7 +38,7 @@ function toggleMute() {
     });
 
     if (currentAudio) {
-        currentAudio.volume = muted ? 0 : 0.7;
+        currentAudio.volume = muted ? 0 : 0.5;
     }
 }
 function stopAllAudio() {
@@ -54,6 +54,7 @@ const screens = {
     splash: document.getElementById('screen-splash'),
     menu: document.getElementById('screen-menu'),
     tutorial: document.getElementById('screen-tutorial'),
+    story: document.getElementById('screen-story'),
     game: document.getElementById('screen-game'),
     results: document.getElementById('screen-results'),
     test: document.getElementById('test-screen'),
@@ -65,7 +66,11 @@ function showScreen(screenName) {
     });
     screens[screenName].classList.add('active');
 
-    if (screenName === 'menu' || screenName === 'tutorial') {
+   if (
+    screenName === 'menu' ||
+    screenName === 'tutorial' ||
+    screenName === 'story'
+) {
         if (!currentAudio || currentAudio !== audio.menu) {
             playAudio('menu');
         }
@@ -258,7 +263,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('btn-tutorial').addEventListener('click', () => {
         showScreen('tutorial');
     });
-
+    document.getElementById('btn-story').addEventListener('click', () => {
+    showScreen('story');
+});
     document.querySelectorAll('.back-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             showScreen('menu');

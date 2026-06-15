@@ -135,7 +135,7 @@ h1 {
     background-color: #1e293b;
     border: 2px solid #3b82f6;
     border-radius: 16px;
-    padding: 40px 30px 0px;
+    padding: 60px 30px 60px;
     width: 90%;
     max-width: 460px;
     text-align: center;
@@ -532,4 +532,31 @@ h1 {
 
 #screen-splash.fade-out {
     animation: fadeOutSplash 0.6s ease-in forwards;
+}
+
+/* ==================== STORY SCREEN ==================== */
+
+.story-character {
+    display: block;
+    width: 250px;
+    max-width: 100%;
+    margin: 20px auto;
+    image-rendering: pixelated;
+    border-radius: 12px;
+}
+
+#screen-story {
+    background-color: #0f172a;
+}
+
+#screen-story .tutorial-box {
+    max-width: 600px;
+    min-height: 700px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#screen-story .tutorial-content {
+    flex: 1;
 }
